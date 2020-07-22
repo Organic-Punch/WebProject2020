@@ -12,6 +12,9 @@ div {
     transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
 }
 
+
+/**/
+
 #MM,
 #SM {
     width: 100%;
