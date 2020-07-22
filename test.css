@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    width: 50px;
+    height: 50px;
+    background: aqua;
+    transition: .3s;
+    transition-property: width, height;
+    transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+}
+
+#MM,
+#SM {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transition: .1s;
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+}
+
+#SM {
+    transition: .3s;
+    height: 0px;
+}
+
+#MM>li {
+    border: 1px solid red;
+}
+
+#MM>li>a {
+    padding: 8px 16px;
+}
+
+#MM>li:hover #SM {
+    height: 90px;
+    opacity: 1;
+}
+
+div:hover #MM {
+    opacity: 1;
+}
+
+div:hover {
+    width: 350px;
+    height: 1300px;
+}
