@@ -20,6 +20,11 @@ body {
     background: #ddd;
 }
 
+.Form {
+    float: right;
+    color: white;
+}
+
 #s {
     transform: translateY(-3%);
     background: #fff;
