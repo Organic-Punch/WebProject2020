@@ -16,6 +16,7 @@
 
     <div class="header">
         <div class="header_in">
+            <input type="button" value="회원가입" onclick="location.href='/join'">
             <form method="post" action="/login" class="Form">
                 <table>
                     <tr>
@@ -28,10 +29,7 @@
                         <td><input type="password" name="pw"></td>
                         <td><input type="submit" value="로그인"></td>
                     </tr>
-
                 </table>
-                <!--이메일 또는 휴대폰 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;비밀번호 <p>
-                    <input type="text" id="ID">&nbsp;&nbsp;<input type="password" id="pw">&nbsp;&nbsp;&nbsp;<input type="submit" value="로그인">-->
             </form>
         </div>
     </div>
@@ -114,6 +112,36 @@
                 </div>
             </div>
         </div>
+        <script>
+            const form = document.getElementById('Form');
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                let xhttp = new XMLHttpRequest();
+                // XmlHttpRequest의 요청
+                xhttp.onreadystatechange = (e) => {
+                        // XMLHttpRequest를 이벤트 파라미터에서 취득
+                        let req = e.target;
+                        // 콘솔 출력
+                        console.log(req);
+                        // 통신 상태가 완료가 되면.
+                        if (req.readyState === XMLHttpRequest.DONE) {
+                            // Http response 응답코드가 200(정상)이면
+                            if (req.status === 200) {
+                                // response 결과를 콘솔에 출력
+                                console.log(req.response);
+                                // json 타입이므로 object 형식으로 변환
+                                console.log(JSON.parse(req.responseText));
+                            }
+                        }
+                    }
+                    // http 요청 타입과 주소, 동기식 여부
+                xhttp.open("GET", "test.json", true);
+                // xml 형식을 받을 경우
+                //xhttp.overrideMimeType('text/xml');
+                // http 요청
+                xhttp.send();
+            });
+        </script>
 </body>
 
 <!---->
