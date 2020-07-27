@@ -17,7 +17,7 @@
     <div class="header">
         <div class="header_in">
             <input type="button" value="회원가입" onclick="location.href='/join'">
-            <form method="post" action="/login" class="Form">
+            <form method="post" action="/login" id="Form">
                 <table>
                     <tr>
                         <td>이메일 또는 휴대폰</td>
@@ -129,13 +129,22 @@
                             if (req.status === 200) {
                                 // response 결과를 콘솔에 출력
                                 console.log(req.response);
+                                const res = JSON.parse(req.response);
                                 // json 타입이므로 object 형식으로 변환
-                                console.log(JSON.parse(req.responseText));
+                                if (res.err == 'user notfound') {
+                                    alert('아이디가 없습니다.');
+                                } else {
+                                    if (res.pw === form.pw.value) {
+                                        alert('로그인 성공!');
+                                    } else {
+                                        alert('비밀번호가 틀렸습니다.');
+                                    }
+                                }
                             }
                         }
                     }
                     // http 요청 타입과 주소, 동기식 여부
-                xhttp.open("GET", "test.json", true);
+                xhttp.open("GET", "/users/" + form.id.value, true);
                 // xml 형식을 받을 경우
                 //xhttp.overrideMimeType('text/xml');
                 // http 요청

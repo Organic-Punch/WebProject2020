@@ -30,11 +30,11 @@ router.get("/:id", function(req, res, next) {
     for (var i = 0; i < users.length; i++) {
         var info = users[i].id;
         if (id == info) {
-            res.send(JSON.stringify(info.id + ' ' + info.pw + ' ' + info.a));
+            res.send(JSON.stringify(users[i]));
             CH = i;
         }
     }
-    if (CH == -1) res.send(JSON.stringify('user notfound'));
+    if (CH == -1) res.send(JSON.stringify({ err: 'user notfound' }));
 });
 
 router.post('/', function(req, res, next) {

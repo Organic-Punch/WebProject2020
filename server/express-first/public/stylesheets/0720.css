@@ -20,7 +20,7 @@ body {
     background: #ddd;
 }
 
-.Form {
+#Form {
     float: right;
     color: white;
 }
