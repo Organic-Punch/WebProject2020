@@ -131,7 +131,7 @@
                                 console.log(req.response);
                                 const res = JSON.parse(req.response);
                                 // json 타입이므로 object 형식으로 변환
-                                if (res.err == 'user notfound') {
+                                if (res.err) {
                                     alert('아이디가 없습니다.');
                                 } else {
                                     if (res.pw === form.pw.value) {
