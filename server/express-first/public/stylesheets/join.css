@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#Form {
+    float: right;
+    color: white;
+}
+
+.header {
+    width: 100%;
+    position: fixed;
+    height: 80px;
+    top: 0;
+    background: #29487d;
+    z-index: 1;
+}
+
+.header_in {
+    width: 90%;
+    height: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#forget {
+    text-decoration: none;
+    color: rgb(163, 157, 157);
+    font-size: 6px;
+}
+
+#bbbb {
+    border: 1px solid rgb(17, 15, 122);
+    background-color: #3c5e97;
+    color: white;
+    font-weight: bold;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-right: -4px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-left: -3px;
+}
+
+#logo {
+    font-family: 'MaplestoryOTFBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+}

@@ -6,35 +6,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="stylesheets/0720.css">
-    <link rel="stylesheet" href="stylesheets/carousel.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="http://malsup.github.com/jquery.cycle2.js"></script>
+    <link rel="stylesheet" href="/server/express-first/public/stylesheets/0720.css">
+    <link rel="stylesheet" href="/server/express-first/public/stylesheets/join.css">
 </head>
 
 <body>
     <div class="header">
         <div class="header_in">
-            <form method="post" action="/login" class="Form">
-                <table>
+            <form method="post" action="/login">
+                <a href="#" id="logo">fakebook</a>
+                <table style="float: right;;">
                     <tr>
-                        <td>이메일 또는 휴대폰</td>
-                        <td>비밀번호</td>
+                        <td style="color: white;">이메일 또는 휴대폰</td>
+                        <td style="color: white;">비밀번호</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td><input type="text" name="id"></td>
                         <td><input type="password" name="pw"></td>
-                        <td><input type="submit" value="로그인" id="bbbb"></td>
+                        <td><input type="submit" value="로그인" id="bbbb" style="margin-left: 10px; margin-top: 2px;"></td>
                     </tr>
-
+                    <tr>
+                        <td></td>
+                        <td style="margin: 0;padding: 0px; top: 0;">
+                            <a href="#" id="forget">계정을 잊으셨나요?</a>
+                        </td>
+                        <td></td>
+                    </tr>
                 </table>
             </form>
         </div>
     </div>
     <div id="m">
         <div id="s">
-
+            <table style="border: 2px solid black; width: max-content; height: max-content;">
+                <tr>
+                    <td>1qjs
+                    </td>
+                    <td>1qjs
+                    </td>
+                    <td>1qjs
+                    </td>
+                </tr>
+            </table>
         </div>
 </body>
 
