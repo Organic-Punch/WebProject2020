@@ -3,9 +3,23 @@ body {
     padding: 0;
 }
 
+#m {
+    height: 1000px;
+    background: #ddd;
+}
+
 #Form {
     float: right;
     color: white;
+}
+
+#s {
+    transform: translateY(-3%);
+    background: #ddd;
+    width: 90%;
+    max-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
 }
 
 .header {
@@ -28,6 +42,15 @@ body {
     text-decoration: none;
     color: rgb(163, 157, 157);
     font-size: 6px;
+}
+
+#in {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-right: -4px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-left: -3px;
 }
 
 #bbbb {

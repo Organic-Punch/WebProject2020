@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
     res.render('index', { title: 'FaceBook' });
 });
 
-router.get('/', function(req, res, next) {
+router.get('/join', function(req, res, next) {
     res.render('join', { title: 'join' });
 });
 
