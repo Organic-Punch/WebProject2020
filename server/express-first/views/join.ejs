@@ -12,7 +12,7 @@
 <body>
     <div class="header">
         <div class="header_in">
-            <form method="post" action="/login">
+            <form method="post" action="/login" id="Form">
                 <a href="http://localhost:3000/" id="logo">fakebook</a>
                 <table style="float: right;;">
                     <tr>
@@ -39,13 +39,17 @@
     <div id="m">
         <div id="s">
             <div class="left_s" style=" width: 60%; height: 100%; float: left; margin-top: 100px;">
-                <h1>최근 로그인 기록</h1>
-                <h5>사진을 클릭하거나 계정을 추가하세요.</h4>
+                <h1>부가기능</h1>
+                <h5>탈퇴하기</h5>
+                <form method="POST" action="/users">
+                    <input type="text" name="id" placeholder="id">
+                    <input type="submit" value="탈퇴">
+                </form>
             </div>
             <div class="right_s" style=" width: 40%; height: 100%; float: right; margin-top: 100px;">
                 <h1>새 계정 만들기</h1>
                 <h5>빠르고 쉽습니다.</h4>
-                    <form method="post" action="/users">
+                    <form method="post" action="/users" id="Form">
                         <table>
                             <tr><input name="Fn" type="text" id="in" placeholder="성" style="height: 2%; width: 43%; float: left;"> <input name="Ln" type="text" id="in" placeholder="이름" style="height: 2%; width: 43%; float: right; margin-right: 7%;"></tr>
                             <tr><input name="id" type="text" id="in" placeholder="휴대폰 번호 또는 이메일" style="height: 2%; width:91.7%;"></tr>
@@ -55,7 +59,7 @@
                             </tr>
                             <tr style="margin-left: 10px;">
                                 <select name="year" style="margin-right: 4px;">
-                                    <option value="2020" selected="selected">2020</option>
+                                    <option value="2020">2020</option>
                                     <option value="2019">2019</option>
                                     <option value="2018" >2018</option>
                                     <option value="2017" >2017</option>
@@ -63,6 +67,20 @@
                                     <option value="2015" >2015</option>
                                     <option value="2014" >2014</option>
                                     <option value="2013" >2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011" >2011</option>
+                                    <option value="2010" >2010</option>
+                                    <option value="2009" >2009</option>
+                                    <option value="2008" >2008</option>
+                                    <option value="2007" >2007</option>
+                                    <option value="2006" >2006</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2004" >2004</option>
+                                    <option value="2003" >2003</option>
+                                    <option value="2002" >2002</option>
+                                    <option value="2001" >2001</option>
+                                    <option value="2000" >2000</option>
+                                    <option value="1999" selected="selected">1999</option>
                                 </select>
                                 <select name="month" style="margin-right: 4px;">
                                     <option value="1" selected="selected">1</option>
@@ -84,6 +102,49 @@
                     </form>
             </div>
         </div>
+        <script>
+            const form = document.getElementById('Form');
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                let xhttp = new XMLHttpRequest();
+                // XmlHttpRequest의 요청
+                xhttp.onreadystatechange = (e) => {
+                        // XMLHttpRequest를 이벤트 파라미터에서 취득
+                        let req = e.target;
+                        // 콘솔 출력
+                        console.log(req);
+                        // 통신 상태가 완료가 되면.
+                        if (req.readyState === XMLHttpRequest.DONE) {
+                            // Http response 응답코드가 200(정상)이면
+                            if (req.status === 200) {
+                                // response 결과를 콘솔에 출력
+                                console.log(req.response);
+                                const res = JSON.parse(req.response);
+                                // json 타입이므로 object 형식으로 변환
+                                if (res.age) {
+                                    alert("가입하기엔 나이가 어립니다.");
+                                } else if (res.al) {
+                                    alert('동일한 아이디가 존재합니다.');
+                                } else if (res.err) {
+                                    alert('아이디가 없습니다.');
+                                } else {
+                                    if (res.pw === form.pw.value) {
+                                        alert('로그인 성공!');
+                                    } else {
+                                        alert('비밀번호가 틀렸습니다.');
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    // http 요청 타입과 주소, 동기식 여부
+                xhttp.open("GET", "/users/" + form.id.value, true);
+                // xml 형식을 받을 경우
+                //xhttp.overrideMimeType('text/xml');
+                // http 요청
+                xhttp.send();
+            });
+        </script>
 </body>
 
 <!---->
